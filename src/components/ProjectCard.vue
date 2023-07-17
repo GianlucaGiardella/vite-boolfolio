@@ -1,34 +1,43 @@
 <script>
+import store from "../store";
+
 export default {
   data() {
-    return {};
+    return {
+      store,
+    };
   },
   props: {
     projectObj: Object,
+  },
+  methods: {
+    getImageUrl(image) {
+      return image
+        ? this.store.baseUrl + "storage/" + image
+        : this.store.baseUrl + "storage/default.jpg";
+    },
   },
 };
 </script>
 
 <template>
-  <li class="card col-3 overflow-hidden" style="width: 18rem">
-    <img :src="projectObj.image" class="card-img-top" />
-    <div class="card-body">
-      <h5 class="card-title" style="height: 5rem">{{ projectObj.title }}</h5>
-      <p class="card-text overflow-y-scroll" style="height: 18rem">
-        {{ projectObj.description }}
-      </p>
+  <div class="card h-100">
+    <img
+      :src="getImageUrl(projectObj.image)"
+      class="card-img-top"
+      :alt="projectObj.title"
+    />
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title flex-grow-1">{{ projectObj.title }}</h5>
+      <h6 class="card-text mb-2">Tipo: {{ projectObj.type.name }}</h6>
+      <router-link
+        :to="{ name: 'projects.show', params: { slug: projectObj.slug } }"
+        class="btn btn-primary mt-auto"
+      >
+        Guarda
+      </router-link>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Autore: {{ projectObj.author }}</li>
-      <li class="list-group-item">Tipo: {{ projectObj.type.name }}</li>
-      <li class="list-group-item">
-        <div>Linguaggi:</div>
-        <span v-for="technology in projectObj.technologies">
-          {{ technology.name }},
-        </span>
-      </li>
-    </ul>
-  </li>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>
