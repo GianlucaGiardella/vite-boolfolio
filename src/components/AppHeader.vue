@@ -9,10 +9,10 @@ export default {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg">
     <div class="container">
       <router-link :to="{ name: 'home' }" class="navbar-brand">
-        Boolfolio
+        <h1 class="fs-3 mb-0">Boolfolio</h1>
       </router-link>
 
       <button
@@ -30,11 +30,13 @@ export default {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link
-              :to="{ name: 'projects.index' }"
-              class="nav-link active"
-            >
+            <router-link :to="{ name: 'projects.index' }" class="nav-link">
               Projects
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'contact' }" class="nav-link">
+              Contact us
             </router-link>
           </li>
         </ul>
