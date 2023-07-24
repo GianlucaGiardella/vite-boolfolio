@@ -1,34 +1,34 @@
 <script>
+import store from "../store";
+import ProjectFilter from "./ProjectFilter.vue";
+
+
 export default {
+  components: {
+    ProjectFilter,
+  },
   data() {
     return {
-      searchString: "",
+      store,
     };
   },
 };
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg">
+  <header class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
       <router-link :to="{ name: 'home' }" class="navbar-brand">
         <h1 class="fs-3 mb-0">Boolfolio</h1>
       </router-link>
 
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <router-link :to="{ name: 'projects.index' }" class="nav-link">
               Projects
@@ -41,29 +41,14 @@ export default {
           </li>
         </ul>
 
-        <form
-          class="d-flex"
-          role="search"
-          @submit.prevent="
-            $router.push({
-              name: 'projects.index',
-              query: { q: searchString },
-            })
-          "
-        >
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            name="q"
-            v-model="searchString"
-          />
-          <button class="btn btn-outline-primary" type="submit">Search</button>
-        </form>
+        <ProjectFilter />
       </div>
     </div>
-  </nav>
+  </header>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.navbar-brand {
+  color: rgba(var(--bs-link-color-rgb))
+}
+</style>

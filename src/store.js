@@ -1,11 +1,14 @@
 import { reactive } from "vue";
 
-const url = "http://localhost:8000/";
-
 export default reactive({
-  baseUrl: url,
+  baseUrl: "http://localhost:8000/",
+  search: "",
+  type: 0,
+  arrTypes: [],
+  page: 1,
+  maxPages: 0,
 
   getImageUrl(image) {
-    return image ? url + "storage/" + image : url + "storage/default.jpg";
+    return image ? this.baseUrl + "storage/" + image : this.baseUrl + "storage/default.jpg";
   },
 });
