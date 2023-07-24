@@ -9,8 +9,8 @@ export default {
   },
   data() {
     return {
-      project: null,
       store,
+      project: null,
       is404: false,
     };
   },

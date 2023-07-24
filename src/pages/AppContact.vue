@@ -47,32 +47,14 @@ export default {
 <template>
   <h1>Contact us</h1>
 
-  <div
-    v-if="showSuccess"
-    class="alert alert-success alert-dismissible fade show"
-    role="alert"
-  >
+  <div v-if="showSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
     Messaggio inviato con sucsesso
-    <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="alert"
-      aria-label="Close"
-    ></button>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 
-  <div
-    v-if="hasError"
-    class="alert alert-danger alert-dismissible fade show"
-    role="alert"
-  >
+  <div v-if="hasError" class="alert alert-danger alert-dismissible fade show" role="alert">
     Errore nell'invio del messaggio
-    <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="alert"
-      aria-label="Close"
-    ></button>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 
   <form @submit.prevent="sendLead" novalidate>
@@ -88,21 +70,11 @@ export default {
 
     <div class="mb-3">
       <label for="message" class="form-label">Message</label>
-      <textarea
-        class="form-control"
-        id="message"
-        rows="5"
-        v-model="message"
-      ></textarea>
+      <textarea class="form-control" id="message" rows="5" v-model="message"></textarea>
     </div>
 
     <div class="mb-3 form-check">
-      <input
-        type="checkbox"
-        class="form-check-input"
-        id="newsletter"
-        v-model="newsletter"
-      />
+      <input type="checkbox" class="form-check-input" id="newsletter" v-model="newsletter" />
       <label class="form-check-label" for="newsletter">
         Registrati alla newsletter
       </label>
