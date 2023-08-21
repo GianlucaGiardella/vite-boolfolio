@@ -41,7 +41,9 @@ export default {
           </li>
         </ul>
 
-        <ProjectFilter />
+        <template v-if="store.arrTypes.length !== 0">
+          <ProjectFilter />
+        </template>
       </div>
     </div>
   </header>
