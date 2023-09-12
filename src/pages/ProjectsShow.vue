@@ -34,6 +34,7 @@ export default {
     <h1>{{ project.title }}</h1>
     <img :src="this.store.getImageUrl(project.image)" :alt="project.title" />
     <p>{{ project.description }}</p>
+    <p>{{ project }}</p>
   </template>
 </template>
 
